@@ -1,0 +1,19 @@
+.topLine{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:#373E68;
+    color:white;
+    padding: 1.5% 3%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+.topLine span{
+    font-size: 1.3rem;
+}
+.topLine>h5{
+   color:white;
+}
+.filteredTxt{
+    color: rgb(183, 183, 183);
+}

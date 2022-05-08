@@ -1,0 +1,17 @@
+.logo{
+    flex: 2;
+}
+.logo header{
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 10px; 
+    padding-left: 8%;
+    padding-bottom: 8%;
+    background: linear-gradient(0.25turn,#69A3F6 0%,#C342B9 40%,orange 90% );
+    text-align: left;
+}
+.logo header h4{
+    font-weight: bold;
+}

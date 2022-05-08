@@ -1,0 +1,16 @@
+#container{
+    width: 80%;
+    margin: 0 auto;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+    padding: 2%;
+   
+}
+.navBar{
+    flex: 2;
+}
+.content{
+    flex: 5;
+} 

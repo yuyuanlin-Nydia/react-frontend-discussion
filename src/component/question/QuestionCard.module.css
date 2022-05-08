@@ -1,0 +1,59 @@
+.discussion {
+  padding: 2% 0;
+}
+.singleDiscussion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 3%;
+  margin: 3% 0;
+  gap: 3%;
+}
+
+.voteNum {
+  flex: 1;
+}
+.voteNum p {
+  background-color: lightblue;
+  color: rgb(12, 22, 54);
+  width: 85%;
+  padding: 10% 0;
+  border-radius: 10px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.discussionContent {
+  flex: 8;
+  text-align: left;
+}
+.discussionContent h5 {
+  font-weight: bold;
+  color: rgb(25, 40, 124);
+}
+.discussionContent p {
+  color: rgb(88, 86, 86);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.comentNum {
+  flex: 1;
+  text-align: center;
+  color: rgb(12, 22, 54);
+  font-weight: bold;
+}
+.msgIcon {
+  vertical-align:text-top;
+  width: 60%;
+  margin-right: 5%;
+}
+.arrowUpIcon {
+  display: block;
+  margin: 0 auto;
+}

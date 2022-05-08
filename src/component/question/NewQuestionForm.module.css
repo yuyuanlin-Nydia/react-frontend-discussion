@@ -1,0 +1,32 @@
+
+.newQuestionForm {
+    border-radius: 10px;
+    width: 100%;
+}
+.newQuestionForm h4{
+    background-color: rgb(226, 43, 180);
+    padding:2% ;
+    border-radius: 10px 10px 0 0;
+}
+.eachInput{
+    width: 100%;
+}
+.formContent{
+    padding: 2% ;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.formContent label{
+    text-align: left ;
+    display: block;
+}
+.formBtns{
+    display: flex;
+    justify-content: center;
+    padding: 2% ;
+}
+.formBtns button{
+    padding: 1.5% 5%;
+    margin: 0 2%;
+}
