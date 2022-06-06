@@ -13,7 +13,7 @@ function Filter(props) {
           <option value="">Most UpVotes</option>
         </select>
       </div>
-      <Button clickEvent={props.onClickModal}>+Ask Question</Button>
+      <Button classBtn={classes.addQuestionBtn}  clickEvent={props.onClickModal}>+Ask Question</Button>
     </div>
   );
 }

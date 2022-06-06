@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchQuestionData } from "../../store/index";
+import { fetchQuestionData } from "../../store/question-action";
 import { NavLink } from "react-router-dom";
 import QuestionCard from "./QuestionCard";
 import classes from "./QuestionList.module.css";
 
 function QuestionList() {
-  console.log("155");
   const dispatch = useDispatch();
   const questionData = useSelector((state) => state.questions.items);
   useEffect(() => {

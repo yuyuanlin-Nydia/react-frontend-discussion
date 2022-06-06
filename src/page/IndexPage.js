@@ -5,17 +5,16 @@ import QuestionList from "../component/question/QuestionList";
 import classes from "./IndexPage.module.css";
 import AddQuestionModal from "../layout/AddQuestionModal";
 import { useDispatch } from "react-redux";
-import { fetchQuestionData } from "../store/index";
+import { fetchQuestionData } from "../store/question-action";
 function IndexPage() {
-  //avoid re-render 
-  const getData=useCallback(()=>{
-    fetchQuestionData()
-  },[])
+  //avoid re-render
+  const getData = useCallback(() => {
+    fetchQuestionData();
+  }, []);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getData);
-  }, [dispatch]);
- 
+  }, [dispatch,getData]);
 
   const [showModal, setShowModal] = useState(false);
   const modalHandler = () => {
@@ -32,7 +31,7 @@ function IndexPage() {
         </nav>
         <section className={classes.content}>
           <Filter onClickModal={modalHandler} />
-          <QuestionList  />
+          <QuestionList />
         </section>
       </div>
     </Fragment>

@@ -1,11 +1,15 @@
 import React, { useRef } from "react";
-import { addQuestion } from "../../store";
+import { addQuestion } from "../../store/question-action";
+import { fetchQuestionData } from "../../store/question-action";
+import { useDispatch } from "react-redux";
 import classes from "./NewQuestionForm.module.css";
 import Modal from "../../UI/Modal";
 import Button from "../../UI/Button";
 function NewQuestionForm(props) {
+  console.log();
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
+  const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
     const data = {
@@ -14,7 +18,9 @@ function NewQuestionForm(props) {
       votes: 0,
       answers: 0,
     };
-    addQuestion(data)
+    addQuestion(data);
+    props.onClickModal();
+    dispatch(fetchQuestionData());
   };
   return (
     <Modal>

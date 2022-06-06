@@ -1,0 +1,17 @@
+.explain{
+    padding: 5%;
+    color: white;
+    width: 55%;
+}
+.explain ul{
+    list-style:disc;
+    color: lightgray;
+}
+.explain ul li{
+
+    display: list-item;
+}
+.explain h3{
+    color: white;
+    font-weight: 900;
+}

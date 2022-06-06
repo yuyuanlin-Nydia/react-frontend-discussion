@@ -1,0 +1,24 @@
+.navBar {
+  color: black;
+  background-color: beige;
+  width: 100%;
+  margin-bottom: 3%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  align-items: center ;
+}
+.webName{
+  font-weight: 900;
+}
+.navBar ul {
+  list-style: none;
+  
+  
+}
+.navBar ul a {
+  padding: 0 2% ;
+}
+.navBar ul li:nth-child(1) {
+  margin-left: 0;
+}

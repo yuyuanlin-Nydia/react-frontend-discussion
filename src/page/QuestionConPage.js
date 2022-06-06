@@ -1,18 +1,11 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
+import { fetchSingleQuestion } from "../store/question-action";
 import classes from "./QuestionConPage.module.css";
 import QuestionDetails from "../layout/QuestionDetails";
 import AnswerList from "../component/answer/AnswerList";
 
-const dummy_data = {
-  id: "q1",
-  votes: 110,
-  title: "How to??",
-  content:
-    "1.content-box 是默认值。如果你设置一个元素的宽为100px，那么这个元素的内容区会有100px宽，并且任何边框和内边距的宽度都会被增加到最后绘制出来的元素宽度中。 ",
-  answers: 2,
-};
 const dummy_data2 = [
   {
     id: "a1",
@@ -30,19 +23,22 @@ const dummy_data2 = [
   },
 ];
 function QuestionConPage() {
-  const questions = useSelector((state) => state.questions.items);
-  const questionId = useParams().questionId;
+  const singleQuestion = useSelector((state) => state.questions.singleQuestionData);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const paramsQuestionId = useParams().questionId;
+  useEffect(() => {
+    dispatch(fetchSingleQuestion(paramsQuestionId));
+  }, []);
 
-  const singleQuestion=questions.find((item)=>{ 
-    return item.id==questionId
-  })
   const goBackHandler = () => {
     navigate(-1);
   };
   return (
     <div className={classes.questionConContainter}>
-      <div onClick={goBackHandler}>Go Back</div>
+      <div className={classes.goBackBtn} onClick={goBackHandler}>
+        Go Back
+      </div>
 
       <QuestionDetails questionData={singleQuestion} />
       <AnswerList answerData={dummy_data2} />

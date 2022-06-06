@@ -4,9 +4,10 @@
     width: 100%;
 }
 .newQuestionForm h4{
-    background-color: rgb(226, 43, 180);
+    background-color: #373E68;
     padding:2% ;
     border-radius: 10px 10px 0 0;
+    color: white;
 }
 .eachInput{
     width: 100%;

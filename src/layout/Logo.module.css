@@ -15,3 +15,6 @@
 .logo header h4{
     font-weight: bold;
 }
+.logo header h4,.logo header h6{
+    color: white;
+}

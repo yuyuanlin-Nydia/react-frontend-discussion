@@ -21,8 +21,6 @@
   align-items: center;
   /* justify-content: center; */
   font-size: calc(10px + 2vmin);
-  color: white;
-  padding-top: 4rem;
 }
 
 .App-link {
@@ -37,14 +35,15 @@
     transform: rotate(360deg);
   }
 }
-button{
+button {
   cursor: pointer;
 }
-input, textarea {
+input,
+textarea {
   font: inherit;
   padding: 0.35rem;
   border-radius: 4px;
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
   border: 1px solid #c1d1d1;
   display: block;
   width: 100%;
@@ -55,26 +54,63 @@ input, textarea {
 
 input:focus,
 textarea:focus {
-  background-color: #cbf8f8;
-  outline-color: teal;
-
+  outline-color: #373e68;
 }
-h1,h2,h3,h4,h5,h6,p{
-  margin: 0;padding: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
   font-weight: normal;
 }
-h1 { font-size: 3rem; }
-h2 { font-size: 2.7rem; }
-h3 { font-size: 2.4rem; }
-h4 { font-size: 2.1rem; }
-h5 { font-size: 1.8rem; }
-h6 { font-size: 1.5rem; }
-p { font-size: 1.2rem; }
-*{
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.7rem;
+}
+h3 {
+  font-size: 2.4rem;
+}
+h4 {
+  font-size: 2.1rem;
+}
+h5 {
+  font-size: 1.8rem;
+}
+h6 {
+  font-size: 1.5rem;
+}
+p {
+  font-size: 1.2rem;
+}
+* {
   box-sizing: border-box;
 }
-a{
+a {
+  text-decoration: none;
+}
+a:link,a:visited,a:hover,a:active  {
+  color: black;
   text-decoration: none;
 }
 
+a:hover {
+  color: #373E68;
+  border-bottom: 3px solid #373E68;
+  transition: all .3s;
+}
 
+ul {
+  list-style: none;
+}
+ul li {
+  display: inline-block;
+}
+.displayCon {
+  width: 75%;
+}

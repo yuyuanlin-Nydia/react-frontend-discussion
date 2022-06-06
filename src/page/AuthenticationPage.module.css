@@ -1,0 +1,13 @@
+
+.auth{
+    color: rgb(88, 86, 86);
+    text-align: left;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:15px ;
+    background-color: rgb(75, 75, 178);
+    height: 70vh;
+}

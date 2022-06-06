@@ -1,0 +1,46 @@
+
+
+.userTypeArea{
+    background-color: rgb(222, 225, 250);
+    padding:5%;
+    height: 100%;
+    width: 45%;
+    border-radius:0 10px 10px 0 ;
+}
+.tabs{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 10%;
+    font-weight: 900;
+    font-size: 1.7rem;
+    padding: 0;
+}
+
+.tabs li{
+    cursor: pointer;
+}
+.tabFocus{
+    border-bottom:3px solid #373E68 ;
+}
+input{
+    display: inline-block;
+}
+.eachInput{
+    margin: 2% 0;
+}
+.eachInput label{
+   font-size: 1.2rem;
+}
+.loginBtn{
+    width: 100%;
+    margin-top: 8%;
+    background-color: #373E68;
+}
+.loginBtn:hover,.loginBtn:active{
+    background-color: #53586f; 
+}
+.warning{
+    color:red;
+    font-weight: 900;
+}

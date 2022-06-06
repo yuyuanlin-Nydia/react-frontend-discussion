@@ -1,12 +1,12 @@
-.btnPink{
+.btn{
     padding: 1.8% 4%;
     color: white;
-    background-color: #AD1FE7; 
+    background-color: #373E68; 
     border-radius: 10px;
     border: 0 transparent solid;    
     font-weight:bold;
     font-size: 1.2rem;
 }
-.btnPink:hover,.btnPink:active{
-    background-color: #AD1FE7; 
+.btn:hover,.btn:active{
+    background-color:#53586f ;
 }
