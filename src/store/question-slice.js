@@ -1,20 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
-const initialQuestionState = { items: [],singleQuestionData:{} };
+const initialQuestionState = { items: [], singleQuestionData: {} }
 
 const questionSlice = createSlice({
-  name: "questions",
+  name: 'questions',
   initialState: initialQuestionState,
   reducers: {
-    getQuestionsData(state, action) {
-      state.items = action.payload;
+    getQuestionsData (state, action) {
+      state.items = action.payload
     },
-    getSingleQuestionData(state, action) {
-      state.singleQuestionData = action.payload;
-    },
-  },
-});
-export default questionSlice.reducer;
-export const questionAction = questionSlice.actions;
-
-
+    getSingleQuestionData (state, action) {
+      state.singleQuestionData = action.payload
+    }
+  }
+})
+export default questionSlice.reducer
+export const questionAction = questionSlice.actions

@@ -1,4 +1,4 @@
-import classes from "./AuthWelcome.module.css";
+import classes from './AuthWelcome.module.css'
 
 const AuthWelcome = () => {
   return (
@@ -11,6 +11,6 @@ const AuthWelcome = () => {
         <li>了解職涯發展與規劃</li>
       </ul>
     </div>
-  );
-};
-export default AuthWelcome;
+  )
+}
+export default AuthWelcome

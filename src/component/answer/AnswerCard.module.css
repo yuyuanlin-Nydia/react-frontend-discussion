@@ -1,19 +1,26 @@
 
 
 .answerCard{
-    
     color:lightslategray;
     padding: 1% 0;
     border-bottom: 1px solid lightslategray;
 }
 
-.answerCard h5{
+.answerCard h6{
     color: rgb(11, 11, 89);
     margin-bottom: 0.5%;
 }
-.answerCard p{
+.answerCard p   {
     font-size: 1.2rem;
 }
 .answer{
-    margin: 3% 0;
+    margin: 2% 0;
+    color: rgb(11, 11, 89);
+}
+.dataBox{
+    display: flex;
+    align-items: center;
+}
+.dataBox>span{
+    font-size: 1rem;
 }

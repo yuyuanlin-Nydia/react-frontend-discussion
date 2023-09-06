@@ -1,27 +1,33 @@
-import React, { useRef } from "react";
-import { addQuestion } from "../../store/question-action";
-import { fetchQuestionData } from "../../store/question-action";
-import { useDispatch } from "react-redux";
-import classes from "./NewQuestionForm.module.css";
-import Modal from "../../UI/Modal";
-import Button from "../../UI/Button";
-function NewQuestionForm(props) {
-  console.log();
-  const titleRef = useRef(null);
-  const descriptionRef = useRef(null);
-  const dispatch = useDispatch();
+import React, { useRef } from 'react'
+import { addQuestion, fetchQuestionData } from '../../store/question-action'
+
+import { useDispatch } from 'react-redux'
+import classes from './NewQuestionForm.module.css'
+import Modal from '../../UI/Modal'
+import Button from '../../UI/Button'
+import PropTypes from 'prop-types'
+
+NewQuestionForm.propTypes = {
+  onClickModal: PropTypes.func
+}
+
+function NewQuestionForm (props) {
+  console.log(props)
+  const titleRef = useRef(null)
+  const descriptionRef = useRef(null)
+  const dispatch = useDispatch()
   const submitHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const data = {
       title: titleRef.current.value,
       description: descriptionRef.current.value,
       votes: 0,
-      answers: 0,
-    };
-    addQuestion(data);
-    props.onClickModal();
-    dispatch(fetchQuestionData());
-  };
+      answers: 0
+    }
+    addQuestion(data)
+    props.onClickModal()
+    dispatch(fetchQuestionData())
+  }
   return (
     <Modal>
       <form className={classes.newQuestionForm} onSubmit={submitHandler}>
@@ -42,7 +48,7 @@ function NewQuestionForm(props) {
         </div>
       </form>
     </Modal>
-  );
+  )
 }
 
-export default NewQuestionForm;
+export default NewQuestionForm

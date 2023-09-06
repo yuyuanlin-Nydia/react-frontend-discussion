@@ -1,9 +1,7 @@
+import classes from './QuestionCard.module.css'
 
-import classes from "./QuestionCard.module.css";
-
-function QuestionCard(props) { 
- 
-  const { votes, title, description, answers } = props.questionData;
+function QuestionCard (props) {
+  const { votes, title, description, answers } = props.questionData
   return (
     <div className={classes.singleDiscussion}>
       <div className={classes.voteNum}>
@@ -29,7 +27,7 @@ function QuestionCard(props) {
         <span>{answers}</span>
       </div>
     </div>
-  );
+  )
 };
 
-export default QuestionCard;
+export default QuestionCard

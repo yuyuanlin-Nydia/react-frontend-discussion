@@ -1,4 +1,7 @@
 有登入才顯示留言的區塊
 沒登入=>文字:登入才能進行回覆
 
-新增留言進資料庫
+新增留言進資料庫=>因為一篇問題有多則留言，送進資料庫需要多一層
+
+firebase如何取子層的資料
+https://stackoverflow.com/questions/67979394/get-specific-data-from-firebase-rest-api

@@ -1,7 +1,7 @@
-import React from "react";
-import classes from "./Logo.module.css";
+import React from 'react'
+import classes from './Logo.module.css'
 
-function Logo() {
+function Logo () {
   return (
     <section className={classes.logo}>
       <header>
@@ -9,7 +9,7 @@ function Logo() {
         <h6>Discussion Board</h6>
       </header>
     </section>
-  );
+  )
 }
 
-export default Logo;
+export default Logo

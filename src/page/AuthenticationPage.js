@@ -1,6 +1,6 @@
-import classes from "./AuthenticationPage.module.css";
-import AuthWelcome from "../layout/AuthWelcome";
-import AuthInput from "../layout/AuthInput";
+import classes from './AuthenticationPage.module.css'
+import AuthWelcome from '../layout/AuthWelcome'
+import AuthInput from '../layout/AuthInput'
 
 const Authentication = () => {
   return (
@@ -8,6 +8,6 @@ const Authentication = () => {
       <AuthWelcome />
       <AuthInput />
     </div>
-  );
-};
-export default Authentication;
+  )
+}
+export default Authentication
