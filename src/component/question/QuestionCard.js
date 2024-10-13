@@ -1,4 +1,10 @@
 import classes from './QuestionCard.module.css'
+import React from 'react'
+import PropTypes from 'prop-types'
+
+QuestionCard.propTypes = {
+  questionData: PropTypes.object
+}
 
 function QuestionCard (props) {
   const { votes, title, description, answers } = props.questionData

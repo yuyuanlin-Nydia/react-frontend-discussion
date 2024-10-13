@@ -4,7 +4,7 @@ import formatDate from '../../lib/dateFormat'
 import PropTypes from 'prop-types'
 
 AnswerCard.propTypes = {
-  answerData: PropTypes.object
+  answerData: PropTypes.array
 }
 
 function AnswerCard (props) {

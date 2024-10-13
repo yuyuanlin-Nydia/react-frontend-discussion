@@ -1,4 +1,5 @@
 import classes from './AuthWelcome.module.css'
+import React from 'react'
 
 const AuthWelcome = () => {
   return (

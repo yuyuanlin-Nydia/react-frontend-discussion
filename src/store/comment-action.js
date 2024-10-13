@@ -1,7 +1,7 @@
 import { commentAction } from './comment-slice'
 
-const firebaseDomain =
-  'https://frontend-discussion-default-rtdb.firebaseio.com'
+const firebaseDomain = 'https://frontend-discussion-default-rtdb.firebaseio.com'
+
 export const fetchCommentData = (paramsQuestionId) => {
   return async (dispatch) => {
     const fetchData = async () => {
@@ -28,7 +28,6 @@ export const fetchCommentData = (paramsQuestionId) => {
   }
 }
 export async function addComment (commentData, questionID) {
-  console.log(commentData)
   const response = await fetch(
     `${firebaseDomain}/comments/${questionID}.json`,
     {

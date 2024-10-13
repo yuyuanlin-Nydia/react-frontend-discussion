@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
 AnswerList.propTypes = {
-  answerData: PropTypes.object
+  answerData: PropTypes.array
 }
 
 function AnswerList (props) {
