@@ -33,11 +33,9 @@ function IndexPage () {
               <div className={classes.title}>
                 Questions
               </div>
-              <div>
-                <button className={'defaultBtn'}>
+                <button>
                   Ask Question
                 </button>
-              </div>
             </div>
             <div className={classes.tags}>
               <button className={`${classes.tag} ${classes.active}`}>interesting</button>
@@ -56,11 +54,11 @@ function IndexPage () {
             <div className={classes.jobCompany}>momo平台</div>
             <div className={classes.jobDetail}>
               <div className={classes.jobLocationContent}>
-                <Icon path={mdiMapMarker} size={0.5} color="#A4A4A4"/>
+                <Icon path={mdiMapMarker} size={0.5} color="var(--base-200)"/>
                 <div className={classes.jobLocation}>台中西區</div>
               </div>
               <div className={classes.natureOfWorkContent}>
-                <Icon path={mdiInformation} size={0.5} color="#A4A4A4"/>
+                <Icon path={mdiInformation} size={0.5} color="var(--base-200)"/>
                 <div className={classes.natureOfWork}>遠端</div>
               </div>
             </div>

@@ -17,10 +17,10 @@
 }
 .discussionContent .questionTitle {
   font-weight: 600;
-  color: #58A5E9;
+  color: var(--accent-secondary);
 }
 .discussionContent .description {
-  color: rgb(88, 86, 86);
+  color: var(--base-300);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -44,7 +44,7 @@
  font-size: 11px;
 }
 .discussionContent .updateInfo{
-  color:#A4A4A4 ;
+  color: var(--base-200);
   font-size: 12px;
 }
 .commentNum {
@@ -63,7 +63,7 @@
 .discussionCount{
   display: flex;
   gap: 12px;
-  color: #A4A4A4;
+  color: var(--base-200);
   font-size: 12px;
   padding: 2% 0;
 }

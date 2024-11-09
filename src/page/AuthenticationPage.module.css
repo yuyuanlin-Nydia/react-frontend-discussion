@@ -1,6 +1,6 @@
 
 .auth{
-    color: rgb(88, 86, 86);
+    color: var(--base-300);
     text-align: left;
     width: 100%;
     margin: 0 auto;

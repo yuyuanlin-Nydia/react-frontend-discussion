@@ -1,5 +1,4 @@
 import React from 'react'
-import classes from './Button.module.css'
 import PropTypes from 'prop-types'
 
 Button.propTypes = {
@@ -10,7 +9,7 @@ Button.propTypes = {
 }
 
 function Button (props) {
-  const btnClasses = classes.btn + ' ' + props.classBtn
+  const btnClasses = props.classBtn
   return (
     <button onClick={props.clickEvent} type={props.type} className={btnClasses} >{props.children}</button>
   )

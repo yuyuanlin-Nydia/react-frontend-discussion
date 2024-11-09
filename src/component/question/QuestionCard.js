@@ -29,7 +29,7 @@ function QuestionCard (props) {
           <Icon path={mdiThumbUpOutline}
             title="vote"
             size={0.8}
-            color="#A4A4A4"
+            color="var(--base-200)"
           />
         </div>
         <div className={classes.column}>
@@ -38,7 +38,7 @@ function QuestionCard (props) {
           <Icon path={mdiForumOutline}
             title="answer"
             size={0.8}
-            color="#A4A4A4"
+            color="var(--base-200)"
           />
         </div>
         <div className={classes.column}>
@@ -47,7 +47,7 @@ function QuestionCard (props) {
           <Icon path={mdiEyeOutline}
             title="views"
             size={0.8}
-            color="#A4A4A4"
+            color="var(--base-200)"
           />
         </div>
       </div>

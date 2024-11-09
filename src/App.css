@@ -1,32 +1,21 @@
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 button {
   cursor: pointer;
   border: none;
+  color: white;
+  background-color: var(--accent-secondary);
+  border-radius: 5px;
+  padding: 4px 12px;
+  box-shadow: var(--button-shadow);
+  font-size: 0.9rem;
+}
+button:hover{
+  box-shadow: var(--button-hover-shadow);
 }
 input,
 textarea {
   font: inherit;
   padding: 0.35rem;
   border-radius: 4px;
-  /* background-color: #f0f0f0; */
   border: 1px solid #c1d1d1;
   display: block;
   width: 100%;
@@ -92,9 +81,4 @@ ul li {
   height: 100%;
   width: 100%;
   padding: 35px;
-  background-color: hsl(0, 0%, 98%);
-}
-.defaultBtn {
-  border-radius: 5px;
-  padding: 6px 12px;
 }

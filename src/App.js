@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import './App.css'
@@ -11,7 +11,7 @@ function App () {
     return state.auth.isLogin
   })
   return (
-    <div className="App">
+    <Fragment>
       <Nav />
       <section className="displayCon">
         <Routes>
@@ -28,7 +28,7 @@ function App () {
           )}
         </Routes>
         </section>
-    </div>
+    </Fragment>
   )
 }
 
