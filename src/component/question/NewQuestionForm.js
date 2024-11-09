@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
 import { addQuestion, fetchQuestionData } from '../../store/question-action'
-
 import { useDispatch } from 'react-redux'
 import classes from './NewQuestionForm.module.css'
 import Modal from '../../UI/Modal'

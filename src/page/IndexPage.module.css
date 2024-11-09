@@ -1,15 +1,91 @@
 #container{
-    margin: 0 auto;
-    background-color: antiquewhite;
-    display: flex;
-    justify-content: center;
-    gap: 3%;
-    padding: 2%;
-   
+  display: flex;
+  gap: 3%;
 }
-.navBar{
-    flex: 2;
+#container .content{
+  width: 65%;
+  background-color: white;
+  box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.1);
 }
-.content{
-    flex: 5;
-} 
+.tabTitleContainer{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+  align-items: center;
+}
+.cardTitle{
+  border-bottom: 1px solid #dcdcdc;
+  padding: 0 20px 0 20px;
+}
+.cardTitle .title{
+  font-size: 16px;
+  color: #A4A4A4;
+  margin: 24px 0;
+  font-weight: 600;
+}
+.tags {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: #A4A4A4;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.tag{
+  background-color: transparent;
+  color: #A4A4A4;
+  font-size: 12px;
+}
+.tag.active{
+  border-radius: 100px;
+  background-color: #F77F00;
+  color: white;
+  padding: 4px 12px;
+}
+
+.sideBarSection{
+  padding: 0px 20px;
+  width: 35%;
+}
+.sideBarSection .topic{
+  font-size: 24px;
+  color: #A4A4A4;
+  padding: 30px 0;
+  font-weight: 500;
+}
+.sideBarSection .jobTitle{
+  font-weight: 600;
+  color: #58A5E9;
+  font-size: 15px;
+}
+
+.sideBarSection .jobCompany{
+  font-weight: 600;
+  color: #A4A4A4;
+  font-size: 14px;
+}
+.sideBarSection .jobDetail{
+  display: flex;
+  gap: 12px;
+}
+.sideBarSection .jobLocationContent,.sideBarSection .natureOfWorkContent{
+  display: flex;
+  align-items: center;
+  color: #A4A4A4;
+  font-size: 13px;
+  margin: 10px 0;
+}
+
+.sideBarSection .jobTags{
+  display: flex;
+  gap: 8px;
+}
+
+.sideBarSection .jobTags .jobTag{
+  font-size: 13px;
+  color: #A4A4A4;
+  border: 1px solid #A4A4A4;
+  border-radius: 100px;
+  background-color: white;
+  padding: 1px 8px;
+}

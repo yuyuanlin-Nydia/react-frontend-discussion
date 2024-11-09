@@ -1,25 +1,21 @@
-
-
 .answerCard{
-    color:lightslategray;
-    padding: 1% 0;
-    border-bottom: 1px solid lightslategray;
+  padding: 1% 0;
+  border-bottom: 1px solid lightslategray;
 }
 
-.answerCard h6{
-    color: rgb(11, 11, 89);
-    margin-bottom: 0.5%;
-}
 .answerCard p   {
-    font-size: 1.2rem;
+  font-size: 1rem;
 }
-.answer{
-    margin: 2% 0;
-    color: rgb(11, 11, 89);
+.answerInfo{
+  display: flex;
+  gap: 8px;
+  margin: 5px 0;
 }
-.dataBox{
-    display: flex;
-    align-items: center;
+.answerAuthor, .answerDate{
+  color:#A4A4A4;
+  display: flex;
+  font-size: 0.8rem;
+  align-items: center;
 }
 .dataBox>span{
     font-size: 1rem;

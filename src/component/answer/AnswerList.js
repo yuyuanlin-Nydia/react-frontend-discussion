@@ -3,7 +3,7 @@ import classes from './AnswerList.module.css'
 import { useParams } from 'react-router-dom'
 import AnswerCard from './AnswerCard'
 import Button from '../../UI/Button'
-import { addComment } from '../../store/comment-action'
+import { addAnswer } from '../../store/comment-action'
 import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -23,20 +23,20 @@ function AnswerList (props) {
       answer: commentTextRef.current.value,
       time: new Date()
     }
-    addComment(data, paramsQuestionId)
+    addAnswer(data, paramsQuestionId)
     commentTextRef.current.value = ''
   }
   return (
     <div className={classes.answerConContainer}>
-      <h3>4 Comments</h3>
+      <div className={classes.answerAmount}>{answerData.length} {answerData.length > 0 ? 'Answers' : 'Answer'}</div>
       {answerData.map((answer) => (
         <AnswerCard answerData={answer} key={answer.id} />
       ))}
       <div className={classes.replySection}>
-        <h6 className={classes.replyTitle}>你的回覆</h6>
+        <h6 className={classes.replyTitle}>Your Rely</h6>
         <textarea ref={commentTextRef} />
         <Button
-          classBtn={classes.replySubmitBtn}
+          classBtn={classes.submitBtn}
           clickEvent={submitReplyHandler}
         >
           確認送出

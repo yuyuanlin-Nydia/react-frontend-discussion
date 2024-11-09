@@ -6,6 +6,8 @@ import classes from './QuestionConPage.module.css'
 import QuestionDetails from '../layout/QuestionDetails'
 import AnswerList from '../component/answer/AnswerList'
 import { fetchCommentData } from '../store/comment-action'
+import Icon from '@mdi/react'
+import { mdiArrowLeft } from '@mdi/js'
 
 function QuestionConPage () {
   const singleQuestion = useSelector((state) => state.questions.singleQuestionData)
@@ -24,7 +26,9 @@ function QuestionConPage () {
   return (
     <div className={classes.questionConContainter}>
       <div className={classes.goBackBtn} onClick={goBackHandler}>
-        Go Back
+        <div>
+          <Icon path={mdiArrowLeft} size={0.8} class={classes.goBackBtnIcon}/>Back
+        </div>
       </div>
 
       <QuestionDetails questionData={singleQuestion} />

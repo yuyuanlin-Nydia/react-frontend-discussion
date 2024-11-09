@@ -1,5 +1,13 @@
 import React from 'react'
 import classes from './Button.module.css'
+import PropTypes from 'prop-types'
+
+Button.propTypes = {
+  classBtn: PropTypes.string,
+  clickEvent: PropTypes.func,
+  type: PropTypes.string,
+  children: PropTypes.node
+}
 
 function Button (props) {
   const btnClasses = classes.btn + ' ' + props.classBtn

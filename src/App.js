@@ -12,24 +12,22 @@ function App () {
   })
   return (
     <div className="App">
-      <header className="App-header">
-        <Nav />
-        <section className="displayCon">
-          <Routes>
+      <Nav />
+      <section className="displayCon">
+        <Routes>
+          <Route path="/" element={<IndexPage />} />
+          <Route
+            path="question-details/:questionId"
+            element={<QuestionConPage />}
+          />
+          {!isLoginSta && (
+            <Route path="/authentication" element={<AuthenticationPage />} />
+          )}
+          {isLoginSta && (
             <Route path="/" element={<IndexPage />} />
-            <Route
-              path="question-details/:questionId"
-              element={<QuestionConPage />}
-            />
-            {!isLoginSta && (
-              <Route path="/authentication" element={<AuthenticationPage />} />
-            )}
-            {isLoginSta && (
-              <Route path="/" element={<IndexPage />} />
-            )}
-          </Routes>
+          )}
+        </Routes>
         </section>
-      </header>
     </div>
   )
 }

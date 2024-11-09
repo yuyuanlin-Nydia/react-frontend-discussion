@@ -1,16 +1,17 @@
 .answerConContainer{
     border-radius: 10px;
     background-color: white;
-    padding: 0 4%;
+    padding: 10px 30px;
     text-align: left;
 }
-h3{
-    color: rgb(11, 11, 89);
-    padding: 1% 0;
+.answerAmount{
+  margin: 8px 0;
+  font-size: 20px;
 }
 .replyTitle{
-    margin: 1% 0;
+  font-size: 16px;
+  margin: 1% 0;
 }
-.replySubmitBtn{
-    margin: 1.5% 0;
+.submitBtn{
+  margin: 1.5% 0;
 }

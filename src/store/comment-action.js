@@ -5,7 +5,7 @@ const firebaseDomain = 'https://frontend-discussion-default-rtdb.firebaseio.com'
 export const fetchCommentData = (paramsQuestionId) => {
   return async (dispatch) => {
     const fetchData = async () => {
-      const response = await fetch(`${firebaseDomain}/comments/${paramsQuestionId}.json?orderBy="time"`)
+      const response = await fetch(`${firebaseDomain}/answers/${paramsQuestionId}.json?orderBy="time"`)
       const data = await response.json()
       return data
     }
@@ -27,9 +27,9 @@ export const fetchCommentData = (paramsQuestionId) => {
     }
   }
 }
-export async function addComment (commentData, questionID) {
+export async function addAnswer (commentData, questionID) {
   const response = await fetch(
-    `${firebaseDomain}/comments/${questionID}.json`,
+    `${firebaseDomain}/answers/${questionID}.json`,
     {
       method: 'POST',
       body: JSON.stringify(commentData),

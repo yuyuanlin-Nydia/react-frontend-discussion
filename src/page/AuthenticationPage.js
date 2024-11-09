@@ -1,3 +1,4 @@
+import React from 'react'
 import classes from './AuthenticationPage.module.css'
 import AuthWelcome from '../layout/AuthWelcome'
 import AuthInput from '../layout/AuthInput'

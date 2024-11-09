@@ -1,0 +1,36 @@
+.questionDataCard{
+  background-color: white;
+  margin-bottom: 24px;
+  padding:10px 30px;
+}
+.questionTitle {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #58A5E9;
+}
+.questionSubTitle {
+   font-size: 0.8rem;
+   margin: 4px 0;
+   color: #A4A4A4;
+   border-bottom: 1px solid #A4A4A4;
+   padding-bottom: 16px;
+}
+.questionSubTitle span{
+  margin-right: 12px;
+}
+.questionDescription {
+  padding-top: 16px;
+  font-size: 1rem;  
+}
+.questionTags{
+  font-size: 0.8rem;
+  display: flex;
+  gap: 12px;
+  margin: 8px 0;
+}
+.questionTags .questionTag{
+  border: 1px solid #A4A4A4;
+  color: #A4A4A4;
+  border-radius: 100px;
+  padding: 2px 8px;
+}
