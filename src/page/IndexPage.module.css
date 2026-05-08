@@ -1,27 +1,28 @@
-#container{
+#container {
   display: flex;
   gap: 3%;
 }
-#container .content{
+#container .content {
   width: 65%;
   background-color: white;
   box-shadow: var(--box-shadow);
 }
-.tabTitleContainer{
+.tabTitleContainer {
   display: flex;
   justify-content: space-between;
   margin: 20px 0 12px 0;
   align-items: center;
 }
-.cardTitle{
+.cardTitle {
   border-bottom: 1px solid #dcdcdc;
   padding: 0 20px 0 20px;
 }
-.cardTitle .title{
+.cardTitle .title {
   font-size: 16px;
   color: var(--base-200);
   margin: 24px 0;
   font-weight: 600;
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
 .tags {
   display: flex;
@@ -31,49 +32,50 @@
   align-items: center;
   margin-bottom: 12px;
 }
-.tag{
+.tag {
   background-color: transparent;
   color: var(--base-200);
   font-size: 12px;
   box-shadow: none;
 }
-.tag:hover{
+.tag:hover {
   box-shadow: none;
   color: var(--base-300);
 }
-.tag.active{
+.tag.active {
   border-radius: 100px;
   background-color: var(--accent-primary);
   color: white;
   padding: 4px 12px;
 }
 
-.sideBarSection{
+.sideBarSection {
   padding: 0px 20px;
   width: 35%;
 }
-.sideBarSection .topic{
+.sideBarSection .topic {
   font-size: 24px;
   color: var(--base-200);
   padding: 30px 0;
   font-weight: 500;
 }
-.sideBarSection .jobTitle{
+.sideBarSection .jobTitle {
   font-weight: 600;
   color: var(--accent-secondary);
   font-size: 15px;
 }
 
-.sideBarSection .jobCompany{
+.sideBarSection .jobCompany {
   font-weight: 600;
   color: var(--base-200);
   font-size: 14px;
 }
-.sideBarSection .jobDetail{
+.sideBarSection .jobDetail {
   display: flex;
   gap: 12px;
 }
-.sideBarSection .jobLocationContent,.sideBarSection .natureOfWorkContent{
+.sideBarSection .jobLocationContent,
+.sideBarSection .natureOfWorkContent {
   display: flex;
   align-items: center;
   color: var(--base-200);
@@ -81,12 +83,12 @@
   margin: 10px 0;
 }
 
-.sideBarSection .jobTags{
+.sideBarSection .jobTags {
   display: flex;
   gap: 8px;
 }
 
-.sideBarSection .jobTags .jobTag{
+.sideBarSection .jobTags .jobTag {
   font-size: 13px;
   color: var(--base-200);
   border: 1px solid var(--base-200);

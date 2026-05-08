@@ -6,7 +6,7 @@ import Icon from '@mdi/react'
 import { mdiAccount, mdiCalendarRange } from '@mdi/js'
 
 AnswerCard.propTypes = {
-  answerData: PropTypes.array
+  answerData: PropTypes.object
 }
 
 function AnswerCard (props) {

@@ -10,7 +10,9 @@ import Icon from '@mdi/react'
 import { mdiArrowLeft } from '@mdi/js'
 
 function QuestionConPage () {
-  const singleQuestion = useSelector((state) => state.questions.singleQuestionData)
+  const singleQuestion = useSelector(
+    (state) => state.questions.singleQuestionData
+  )
   const commentsData = useSelector((state) => state.comments.items)
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -27,7 +29,12 @@ function QuestionConPage () {
     <div className={classes.questionConContainter}>
       <div className={classes.goBackBtn} onClick={goBackHandler}>
         <div>
-          <Icon path={mdiArrowLeft} size={0.8} class={classes.goBackBtnIcon}/>Back
+          <Icon
+            path={mdiArrowLeft}
+            size={0.8}
+            className={classes.goBackBtnIcon}
+          />
+          Back
         </div>
       </div>
 

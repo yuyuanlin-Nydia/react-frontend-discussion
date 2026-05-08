@@ -1,12 +1,27 @@
 import classes from './Nav.module.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { authAction } from '../store/auth-slice'
-import React from 'react'
+import React, { useState } from 'react'
 
 const Nav = () => {
   const loginData = useSelector((state) => state.auth)
   const { isLogin, userAccount } = loginData
+  const [menuList] = useState([
+    {
+      label: 'Questions',
+      path: '/question'
+    },
+    {
+      label: 'Jobs',
+      path: '/job'
+    },
+    {
+      label: 'Documentation',
+      path: '/documentation'
+    }
+  ])
+  const { pathname } = useLocation()
   const dispatch = useDispatch()
   const logoutHandler = () => {
     dispatch(authAction.logHandler(false))
@@ -16,7 +31,6 @@ const Nav = () => {
       <div>
         <NavLink to="/">
           <div className={classes.webName}>
-            <img width="32" className={classes.webIcon} alt="The official Stack Overflow icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Stack_Overflow_icon.svg/512px-Stack_Overflow_icon.svg.png?20190716190036"/>
             frontend<span className={classes.bolder}>Discussion</span>
           </div>
         </NavLink>
@@ -27,19 +41,22 @@ const Nav = () => {
             <li className={classes.navLink}>登入/註冊</li>
           </NavLink>
         )}
-        {isLogin && <li onClick={logoutHandler}> {userAccount}您好  登出</li>}
+        {isLogin && <li onClick={logoutHandler}> {userAccount}您好 登出</li>}
       </ul>
       <div className={classes.navFunctionalBar}>
         <div className={classes.menuList}>
-          <div className={`${classes.active} ${classes.menuListItem}`}>Questions</div>
-          <div className={classes.menuListItem}>Jobs</div>
-          <div className={classes.menuListItem}>Documentation</div>
+          {menuList.map((menuItem) => (
+            <NavLink
+              key={menuItem.label}
+              to={menuItem.path}
+              className={`${pathname.includes(menuItem.path) ? classes.active : ''} ${classes.menuListItem}`}
+            >
+              {menuItem.label}
+            </NavLink>
+          ))}
         </div>
-        <div >
-          <input
-            className={classes.searchInput}
-            placeholder='Search'
-          />
+        <div>
+          <input className={classes.searchInput} placeholder="Search" />
         </div>
       </div>
     </nav>
