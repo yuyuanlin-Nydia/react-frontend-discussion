@@ -19,8 +19,11 @@ function QuestionConPage () {
   const paramsQuestionId = useParams().questionId
   useEffect(() => {
     dispatch(fetchSingleQuestion(paramsQuestionId))
+  }, [dispatch, paramsQuestionId])
+
+  useEffect(() => {
     dispatch(fetchCommentData(paramsQuestionId))
-  }, [dispatch, paramsQuestionId, commentsData])
+  }, [dispatch, paramsQuestionId])
 
   const goBackHandler = () => {
     navigate(-1)

@@ -1,15 +1,14 @@
 import { questionAction } from './question-slice'
-const firebaseDomain =
-  'https://frontend-discussion-default-rtdb.firebaseio.com'
-export const fetchQuestionData = () => {
+import { fetchQuestionsApi, 
+  fetchSingleQuestionApi, 
+  addQuestionApi,
+  updateQuestionAnswerCountApi
+} from '../api/question'
+
+export const fetchQuestions = (params) => {
   return async (dispatch) => {
-    const fetchData = async () => {
-      const response = await fetch(`${firebaseDomain}/questions.json`)
-      const data = await response.json()
-      return data
-    }
     try {
-      const questionData = await fetchData()
+      const questionData = await fetchQuestionsApi(params)
       const transformedQuotes = []
 
       for (const key in questionData) {
@@ -19,7 +18,7 @@ export const fetchQuestionData = () => {
         }
         transformedQuotes.push(quoteObj)
       }
-      dispatch(questionAction.getQuestionsData(transformedQuotes || []))
+      dispatch(questionAction.setQuestions(transformedQuotes || []))
       if (!localStorage.getItem('myQuestionData')) {
         localStorage.setItem('myQuestionData', questionData)
       }
@@ -30,24 +29,25 @@ export const fetchQuestionData = () => {
 }
 export const fetchSingleQuestion = (questionId) => {
   return async (dispatch) => {
-    const response = await fetch(
-      `${firebaseDomain}/questions/${questionId}.json`
-    )
-    const data = await response.json()
+    const data = await fetchSingleQuestionApi(questionId)
     const loadedQuestion = {
       id: questionId,
       ...data
     }
-    dispatch(questionAction.getSingleQuestionData(loadedQuestion || []))
+    dispatch(questionAction.setSingleQuestion(loadedQuestion || []))
   }
 }
 export async function addQuestion (questionData) {
-  const response = await fetch(`${firebaseDomain}/questions.json`, {
-    method: 'POST',
-    body: JSON.stringify(questionData),
-    'Content-Type': 'application/json'
-  })
-  const data = await response.json()
-  console.log(data)
+  await addQuestionApi(questionData)
   alert('已成功發問!')
 }
+
+// 更新問題的回答數量
+export const updateQuestionAnswerCount = async (questionID, { answerCount }) => {
+  try {
+    await updateQuestionAnswerCountApi(questionID, { params: { answerCount } })
+  } catch (error) {
+    console.log(error)
+  }
+}
+

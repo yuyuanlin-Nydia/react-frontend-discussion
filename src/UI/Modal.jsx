@@ -4,7 +4,7 @@ import classes from './Modal.module.css'
 import PropTypes from 'prop-types'
 
 Modal.propTypes = {
-  children: PropTypes.elementType
+  children: PropTypes.node
 }
 
 function Modal (props) {

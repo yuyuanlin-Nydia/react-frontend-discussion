@@ -3,9 +3,10 @@
     border-radius: 10px;
     width: 100%;
 }
-.newQuestionForm h4{
-    background-color: #373E68;
-    padding:2% ;
+.newQuestionForm .title{
+    font-size: 18px;
+    background-color: var(--accent-secondary);
+    padding: 10px;
     border-radius: 10px 10px 0 0;
     color: white;
 }
@@ -28,6 +29,13 @@
     padding: 2% ;
 }
 .formBtns button{
-    padding: 1.5% 5%;
-    margin: 0 2%;
+    padding: 8px 16px;
+    margin: 0 16px;
+}
+
+.formBtns .submit{
+    background-color: var(--accent-primary);
+}
+.formBtns .leave{
+    background-color: var(--base-200);
 }

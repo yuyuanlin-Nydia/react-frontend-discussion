@@ -5,7 +5,7 @@ const commentSlice = createSlice({
   name: 'comments',
   initialState: initialCommentState,
   reducers: {
-    getComments (state, action) {
+    setComments (state, action) {
       state.items = action.payload
     }
   }

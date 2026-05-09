@@ -6,10 +6,10 @@ const questionSlice = createSlice({
   name: 'questions',
   initialState: initialQuestionState,
   reducers: {
-    getQuestionsData (state, action) {
+    setQuestions (state, action) {
       state.items = action.payload
     },
-    getSingleQuestionData (state, action) {
+    setSingleQuestion (state, action) {
       state.singleQuestionData = action.payload
     }
   }

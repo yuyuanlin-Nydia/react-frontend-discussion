@@ -3,7 +3,8 @@ import classes from './AnswerList.module.css'
 import { useParams } from 'react-router-dom'
 import AnswerCard from './AnswerCard'
 import Button from '../../UI/Button'
-import { addAnswer } from '../../store/comment-action'
+import { addAnswer, fetchCommentData } from '../../store/comment-action'
+import { updateQuestionAnswerCount } from '../../store/question-action'
 import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -13,6 +14,9 @@ AnswerList.propTypes = {
 
 function AnswerList (props) {
   const userAccount = useSelector((state) => state.auth.userAccount)
+  const isLogin = useSelector((state) => {
+    return state.auth.isLogin
+  })
   const { answerData } = props
   const paramsQuestionId = useParams().questionId
   const commentTextRef = useRef('')
@@ -24,7 +28,9 @@ function AnswerList (props) {
       time: new Date()
     }
     addAnswer(data, paramsQuestionId)
+    updateQuestionAnswerCount(paramsQuestionId, { answerCount: answerData.length + 1 })
     commentTextRef.current.value = ''
+    fetchCommentData(paramsQuestionId)
   }
   return (
     <div className={classes.answerConContainer}>
@@ -32,8 +38,8 @@ function AnswerList (props) {
       {answerData.map((answer) => (
         <AnswerCard answerData={answer} key={answer.id} />
       ))}
-      <div className={classes.replySection}>
-        <h6 className={classes.replyTitle}>Your Rely</h6>
+      { isLogin && <div className={classes.replySection}>
+        <h6 className={classes.replyTitle}>Your Reply</h6>
         <textarea ref={commentTextRef} />
         <Button
           classBtn={classes.submitBtn}
@@ -42,6 +48,7 @@ function AnswerList (props) {
           確認送出
         </Button>
       </div>
+      }
     </div>
   )
 }

@@ -3,19 +3,19 @@ import QuestionList from '../component/question/QuestionList'
 import classes from './IndexPage.module.css'
 import AddQuestionModal from '../layout/AddQuestionModal'
 import { useDispatch } from 'react-redux'
-import { fetchQuestionData } from '../store/question-action'
+import { fetchQuestions } from '../store/question-action'
 import Icon from '@mdi/react'
 import { mdiMapMarker, mdiInformation } from '@mdi/js'
 
 function IndexPage () {
+  const dispatch = useDispatch()
   // avoid re-render
   const getData = useCallback(() => {
-    fetchQuestionData()
-  }, [])
-  const dispatch = useDispatch()
+    dispatch(fetchQuestions())
+  }, [dispatch])
   useEffect(() => {
-    dispatch(getData)
-  }, [dispatch, getData])
+    getData()
+  }, [getData])
 
   const [showModal, setShowModal] = useState(false)
   const modalHandler = () => {
@@ -33,7 +33,7 @@ function IndexPage () {
               <div className={classes.title}>
                 Questions
               </div>
-                <button>
+                <button onClick={() => setShowModal(true)}>
                   Ask Question
                 </button>
             </div>
