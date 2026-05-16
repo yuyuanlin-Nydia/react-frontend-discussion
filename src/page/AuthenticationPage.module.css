@@ -7,7 +7,94 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius:15px ;
     background-color: rgb(75, 75, 178);
-    height: 70vh;
+    height: 100%;
+}
+.loginSideImg 
+{
+    width: 50%;
+    height: 100%;
+}
+.userTypeArea{
+    background-color: rgb(222, 225, 250);
+    padding:5%;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.logo {
+    position: absolute;
+    top: 20px;
+    width: 200px;
+    cursor: pointer;
+}
+.tabs{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 40px;
+    font-size: 20px;
+}
+.tabs li{
+    cursor: pointer;
+}
+.tabFocus{
+    border-bottom:3px solid #373E68 ;
+}
+.inputArea {
+    margin: 50px 0;
+}
+input{
+    display: inline-block;
+}
+.eachInput{
+    margin: 16px 0;
+}
+.loginBtn{
+    width: 100%;
+    margin-top: 8%;
+    background-color: #373E68;
+    padding: 8px;
+}
+.disabled {
+    background-color:var(--base-200);
+}
+.loginBtn:not(.disabled):hover,.loginBtn:not(.disabled):active{
+    background-color: #53586f; 
+}
+.passwordContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.passwordContainer input {
+    width: 100%;
+    padding-right: 35px; /* 為圖標留出空間 */
+}
+.eyeIcon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #373E68;
+    user-select: none;
+}
+.warning{
+    color:red;
+    font-weight: 900;
+    font-size: 0.8rem;
+}
+.copyright{
+    position: absolute;
+    bottom: 20px;
+    font-size: 0.8rem;
+    color: var(--base-300);
+    text-align: center;
+    left: 0;
+    width: 100%;
 }

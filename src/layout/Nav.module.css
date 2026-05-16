@@ -4,16 +4,11 @@
   padding: 15px 20px 0 20px;
   position: relative;
 }
-.webName {
-  font-size: 18px;
-  font-weight: 500;
+.logo {
   justify-self: center;
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-.webName .bolder{
-  font-weight: 800;  
+  width: 200px;
 }
 .navBar ul {
   list-style: none;
@@ -23,12 +18,37 @@
   margin: 0;
   padding: 15px 0;
 }
-.navLink{
-  font-size: 14px;
-  color: gray;
-}
 .navBar ul li:nth-child(1) {
   margin-left: 0;
+}
+.logoBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.logoBar .logInBtn {
+  position: absolute;
+  right: 0px;
+  background: linear-gradient(99.66deg,var(--accent-secondary) 7.02%,#bedaf2 79.47%);
+  border: 2px solid hsla(0,0%,100%,.45);
+  margin: 8px;
+  border-radius: 100px;
+  color: #fff;
+  font-size: 18px;
+  min-width: 64px;
+  padding: 4px 12px;
+}
+.logInText {
+  position: absolute;
+  right: 0px;
+}
+.logOutBtn {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.logOutBtn:hover {
+  color: var(--accent-secondary);
 }
 .menuList{
   display: flex;

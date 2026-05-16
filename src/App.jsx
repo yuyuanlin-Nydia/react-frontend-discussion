@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import './App.css'
 import Nav from './layout/Nav'
@@ -8,14 +8,16 @@ import JobPage from './page/JobPage'
 import DocumentationPage from './page/DocumentationPage'
 import QuestionConPage from './page/QuestionConPage'
 import AuthenticationPage from './page/AuthenticationPage'
+import Snackbar from './UI/Snackbar/Snackbar'
 
 function App () {
-  const isLoginSta = useSelector((state) => {
+  const { pathname } = useLocation()
+  const isLogin = useSelector((state) => {
     return state.auth.isLogin
   })
   return (
     <Fragment>
-      <Nav />
+      {pathname !== '/authentication' && <Nav />}
       <section className="displayCon">
         <Routes>
           <Route path="/" element={<IndexPage />} />
@@ -26,12 +28,13 @@ function App () {
             path="/question/question-details/:questionId"
             element={<QuestionConPage />}
           />
-          {!isLoginSta && (
+          {!isLogin && (
             <Route path="/authentication" element={<AuthenticationPage />} />
           )}
-          {isLoginSta && <Route path="/" element={<IndexPage />} />}
+          {isLogin && <Route path="/" element={<IndexPage />} />}
         </Routes>
       </section>
+      <Snackbar />
     </Fragment>
   )
 }
