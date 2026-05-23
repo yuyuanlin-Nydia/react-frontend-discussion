@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { snackbarActions } from '../../store/snackbar-slice'
 import classes from './Snackbar.module.css'
 import Icon from '@mdi/react'
-import { mdiClose } from '@mdi/js'
+import { mdiCloseCircle } from '@mdi/js'
 
 const Snackbar = () => {
   const dispatch = useDispatch()
@@ -38,12 +38,12 @@ const Snackbar = () => {
         <span>{message}</span>
       </div>
       {showCloseIcon && (
-        <button
+        <Icon
+          path={mdiCloseCircle}
+          size={0.9}
           className={classes.closeBtn}
           onClick={() => dispatch(snackbarActions.closeSnackbar())}
-        >
-          <Icon path={mdiClose} size={0.8} color="grey" />
-        </button>
+        />
       )}
     </div>
   )
