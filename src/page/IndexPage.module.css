@@ -3,7 +3,7 @@
   gap: 3%;
 }
 #container .content {
-  width: 65%;
+  width: 80%;
   background-color: white;
   box-shadow: var(--box-shadow);
 }
@@ -51,7 +51,7 @@
 
 .sideBarSection {
   padding: 0px 20px;
-  width: 35%;
+  width: 20%;
 }
 .sideBarSection .topic {
   font-size: 24px;

@@ -13,7 +13,6 @@ export const addQuestionApi = async (questionData) =>
   })
 
 export const updateQuestionAnswerCountApi = async (questionID, { params }) => {
-  console.log(params)
   return await request(`/questions/${questionID}.json`, {
     method: 'PATCH',
     body: JSON.stringify({ answers: params.answerCount })

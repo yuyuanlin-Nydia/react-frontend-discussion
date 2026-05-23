@@ -1,0 +1,99 @@
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.23); /* Vuetify 預設邊框色 */
+  border-radius: 6px;
+  background-color: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  padding: 0 8px;
+  min-height: 40px;
+}
+
+.inputContainer.focused {
+  border-color: #373E68;
+  border-width: 2px;
+}
+
+.inputContainer.invalid {
+  border-color: #f44336;
+}
+
+.label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.6);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              top 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              font-size 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  background-color: white;
+  padding: 0 4px;
+  z-index: 3; /* 確保在最上層 */
+}
+
+.labelWithPrepend {
+  left: 40px;
+}
+
+.labelActive {
+  top: 0;
+  left: 8px !important; /* 浮起時靠最左 */
+  transform: translateY(-50%) scale(0.85);
+  color: #373E68;
+}
+
+.inputContainer.invalid .labelActive {
+  color: #f44336;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.54);
+  width: 24px;
+  z-index: 2;
+}
+
+.prepend {
+  margin-right: 12px;
+}
+
+.append {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 8px 0;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.87);
+  width: 100%;
+  z-index: 2;
+  height: 100%;
+}
+
+.note, .errorText {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  padding-left: 12px;
+  min-height: 16px;
+}
+
+.note { color: rgba(0, 0, 0, 0.6); }
+.errorText { color: #f44336; font-weight: 400; }

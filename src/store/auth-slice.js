@@ -1,39 +1,34 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const storedToken = localStorage.getItem('idToken')
+const storedUserInfo = JSON.parse(localStorage.getItem('userInfo') || '{}')
+
 const initialAuthState = {
-  isLogin: false,
-  userAccount: null,
-  idToken: null,
-  displayName: null,
-  refreshToken: null
+  isLogin: !!storedToken,
+  userAccount: storedUserInfo.userAccount || null,
+  idToken: storedToken || null,
+  displayName: storedUserInfo.displayName || null
 }
-const updateProfileHandler = async (idToken, userAccount) => {
-  const response = await fetch(
-    'https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyCYMgs7g9s73a3DTLuMFDhs2q1y3Mk85kg',
-    {
-      method: 'POST',
-      body: JSON.stringify({
-        idToken,
-        displayName: userAccount,
-        photoUrl: '',
-        returnSecureToken: true
-      })
-    }
-  )
-  const data = await response.json()
-  console.log(data)
-}
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: initialAuthState,
   reducers: {
     logHandler (state, action) {
-      state.isLogin = action.payload.isLogin
-      state.userAccount = action.payload.loginData.email.split('@')[0]
-      state.idToken = action.payload.loginData.idToken
-      updateProfileHandler(state.idToken, state.userAccount)
+      const { displayName, idToken, email } = action.payload.loginData
+      state.isLogin = true
+      state.idToken = idToken
+      state.email = email
+      state.displayName = displayName
+    },
+    logout (state) {
+      return {
+        ...state,
+        ...initialAuthState
+      }
     }
   }
 })
+
 export default authSlice.reducer
 export const authAction = authSlice.actions
