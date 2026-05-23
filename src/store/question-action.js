@@ -54,7 +54,7 @@ export const addViewCount = async (questionId) => {
 }
 
 // 更新問題的回答數量
-export const addAnswerCount = async (questionID, { answerCount }) => {
+export const addAnswerCount = async (questionID) => {
   try {
     await updateQuestionAnswerCountApi(questionID)
   } catch (error) {

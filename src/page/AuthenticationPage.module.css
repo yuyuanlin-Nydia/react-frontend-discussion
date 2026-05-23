@@ -84,11 +84,6 @@ input{
     color: #373E68;
     user-select: none;
 }
-.warning{
-    color:red;
-    font-weight: 900;
-    font-size: 0.8rem;
-}
 .copyright{
     position: absolute;
     bottom: 20px;

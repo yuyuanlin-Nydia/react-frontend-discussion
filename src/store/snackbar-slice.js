@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { mdiInformation } from '@mdi/js'
 
 const initialState = {
   isOpen: false,
   message: '',
-  icon: null, // 可傳入 mdi path
+  icon: mdiInformation, // 可傳入 mdi path
   duration: 3000,
   bgColor: '#2fd420cd',
   showCloseIcon: false,
@@ -20,7 +21,7 @@ const snackbarSlice = createSlice({
       const { message, icon, duration, bgColor, showCloseIcon, top, center, bottom } = action.payload
       state.isOpen = true
       state.message = message || ''
-      state.icon = icon || null
+      state.icon = icon || mdiInformation
       state.duration = duration !== undefined ? duration : 3000
       state.bgColor = bgColor || '#2fd420cd'
       state.showCloseIcon = showCloseIcon || false

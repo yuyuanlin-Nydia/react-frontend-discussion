@@ -5,15 +5,15 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { authAction } from '../store/auth-slice'
 import Button from '../UI/Button'
-import { mdiEye, mdiEyeOff, mdiAccountKey, mdiEmail, mdiCheckCircle } from '@mdi/js'
+import { mdiEye, mdiEyeOff, mdiAccountKey, mdiEmail, mdiCheckCircle, mdiAlert, mdiAlertCircle } from '@mdi/js'
 import Input from '../UI/Input/Input'
 import Snackbar from '../UI/Snackbar/Snackbar'
 import logo from '../../assets/images/logo/logoHorizontalLong.png'
+import { snackbarActions } from '../store/snackbar-slice'
 
 const Authentication = () => {
   const navigate = useNavigate()
   const [currentTab, setCurrentTab] = useState('logIn')
-  const [warning, setWarning] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const tabs = [
     { value: 'logIn', name: '登入' },
@@ -25,7 +25,6 @@ const Authentication = () => {
   const handleClear = () => {
     setEmail('')
     setPassword('')
-    setWarning('')
   }
   const warningObj = {
     EMAIL_EXISTS: '此電子郵件已註冊過',
@@ -35,7 +34,13 @@ const Authentication = () => {
     INVALID_PASSWORD: '密碼不正確，請重新輸入!'
   }
   const handleWarning = (msg) => {
-    setWarning(warningObj[msg] || '未知錯誤')
+    dispatch(snackbarActions.showSnackbar({
+      message: warningObj[msg] || '發生錯誤，請稍後再試！',
+      icon: mdiAlertCircle,
+      bgColor: 'var(--error)',
+      showCloseIcon: true,
+      duration: 5000
+    }))
   }
 
   const togglePasswordVisibility = () => {
@@ -150,8 +155,6 @@ const Authentication = () => {
                 />
               </div>
             </div>
-
-            {warning && <p className={classes.warning}>{warning}</p>}
             {currentTab === 'logIn' && (
               <Button type="button" classBtn={btnClass} clickEvent={loginHandler} disabled={!email || !password}>
                 登入
