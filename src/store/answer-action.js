@@ -23,5 +23,4 @@ export const fetchAnswerData = (paramsQuestionId) => {
 }
 export async function addAnswer (anserData, questionID) {
   await addAnswerApi(anserData, questionID)
-  alert('已成功新增回覆!')
 }

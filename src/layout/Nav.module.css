@@ -39,6 +39,9 @@
   min-width: 64px;
   padding: 4px 12px;
 }
+.logoBar .logInBtn:hover {
+  background: linear-gradient(99.66deg,#bedaf2 7.02%,var(--accent-secondary) 79.47%);
+}
 .logInText {
   position: absolute;
   right: 0px;

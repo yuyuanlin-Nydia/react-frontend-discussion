@@ -1,8 +1,10 @@
 import { questionAction } from './question-slice'
-import { fetchQuestionsApi, 
-  fetchSingleQuestionApi, 
+import {
+  fetchQuestionsApi,
+  fetchSingleQuestionApi,
   addQuestionApi,
-  updateQuestionAnswerCountApi
+  updateQuestionAnswerCountApi,
+  updateQuestionViewCountApi
 } from '../api/question'
 
 export const fetchQuestions = (params) => {
@@ -42,12 +44,20 @@ export async function addQuestion (questionData) {
   alert('已成功發問!')
 }
 
-// 更新問題的回答數量
-export const updateQuestionAnswerCount = async (questionID, { answerCount }) => {
+// 更新問題的瀏覽次數
+export const addViewCount = async (questionId) => {
   try {
-    await updateQuestionAnswerCountApi(questionID, { params: { answerCount } })
+    await updateQuestionViewCountApi(questionId)
   } catch (error) {
     console.log(error)
   }
 }
 
+// 更新問題的回答數量
+export const addAnswerCount = async (questionID, { answerCount }) => {
+  try {
+    await updateQuestionAnswerCountApi(questionID)
+  } catch (error) {
+    console.log(error)
+  }
+}

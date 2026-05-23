@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { authAction } from '../store/auth-slice'
 import React, { useState } from 'react'
 import { snackbarActions } from '../store/snackbar-slice'
-import { mdiInformation } from '@mdi/js'
 import logoHorizontal from '../../assets/images/logo/logoHorizontal.png'
 
 const Nav = () => {
@@ -32,8 +31,7 @@ const Nav = () => {
     localStorage.removeItem('userInfo')
     dispatch(authAction.logout())
     dispatch(snackbarActions.showSnackbar({
-      message: '您已成功登出！',
-      icon: mdiInformation
+      message: '您已成功登出！'
     }))
     navigate('/', { replace: true })
   }

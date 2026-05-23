@@ -21,7 +21,8 @@ function NewQuestionForm (props) {
       description: descriptionRef.current.value,
       votes: 0,
       answers: 0,
-      views: 0
+      views: 0,
+      time: new Date()
     }
     addQuestion(data)
     props.onClickModal()
@@ -30,23 +31,23 @@ function NewQuestionForm (props) {
   return (
     <Modal>
       <form className={classes.newQuestionForm} onSubmit={submitHandler}>
-        <h6 className={classes.title}>Ask Question</h6>
+        <h6 className={classes.title}>發問</h6>
         <div className={classes.formContent}>
           <div className={classes.eachInput}>
-            <label>Title:</label>
+            <label>標題:</label>
             <input type="text" ref={titleRef} />
           </div>
           <div className={classes.eachInput}>
-            <label>Description:</label>
+            <label>描述:</label>
             <textarea type="text" ref={descriptionRef} />
           </div>
         </div>
         <div className={classes.formBtns}>
           <Button type="submit" classBtn={classes.submit}>
-            Submit
+            送出
           </Button>
           <Button clickEvent={props.onClickModal} classBtn={classes.leave}>
-            Leave
+            取消
           </Button>
         </div>
       </form>

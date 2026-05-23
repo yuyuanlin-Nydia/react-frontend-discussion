@@ -20,7 +20,7 @@ function QuestionCard (props) {
           <div className={classes.tagName}>vue</div>
         </div>
         <p className={classes.description}>{description}</p>
-        <p className={classes.updateInfo}>update 1 min ago</p>
+        {/* <p className={classes.updateInfo}>update 1 min ago</p> */}
       </div>
       <div className={classes.discussionCount}>
         <div className={classes.column}>

@@ -19,19 +19,19 @@ function QuestionDetailsPage () {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const paramsQuestionId = useParams().questionId
+  const loadQuestionDetails = async () => {
+    await dispatch(fetchSingleQuestion(paramsQuestionId))
+    setIsQuestionLoading(false)
+  }
+  const loadAnswers = async () => {
+    await dispatch(fetchAnswerData(paramsQuestionId))
+    setIsAnswerLoading(false)
+  }
   useEffect(() => {
-    const loadQuestionDetails = async () => {
-      await dispatch(fetchSingleQuestion(paramsQuestionId))
-      setIsQuestionLoading(false)
-    }
     loadQuestionDetails()
   }, [dispatch, paramsQuestionId])
 
   useEffect(() => {
-    const loadAnswers = async () => {
-      await dispatch(fetchAnswerData(paramsQuestionId))
-      setIsAnswerLoading(false)
-    }
     loadAnswers()
   }, [dispatch, paramsQuestionId])
 
@@ -70,7 +70,7 @@ function QuestionDetailsPage () {
         }
 
       </div>
-      <AnswerList answerData={answersData} />
+      <AnswerList answerData={answersData} onSubmitSuccess={loadAnswers} isAnswerLoading={isAnswerLoading} />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialQuestionState = { items: [], singleQuestionData: {} }
+const initialQuestionState = { items: [], singleQuestionData: {}, isLoading: false }
 
 const questionSlice = createSlice({
   name: 'questions',

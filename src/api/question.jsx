@@ -12,9 +12,20 @@ export const addQuestionApi = async (questionData) =>
     body: JSON.stringify(questionData)
   })
 
-export const updateQuestionAnswerCountApi = async (questionID, { params }) => {
+export const updateQuestionAnswerCountApi = async (questionID) => {
   return await request(`/questions/${questionID}.json`, {
     method: 'PATCH',
-    body: JSON.stringify({ answers: params.answerCount })
+    body: JSON.stringify({
+      answers: { '.sv': { increment: 1 } }
+    })
+  })
+}
+export const updateQuestionViewCountApi = async (questionID) => {
+  return await request(`/questions/${questionID}.json`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+      // .sv 代表 Server Value（伺服器變數），這行指令會讓 Firebase 伺服器在後端自動 +1
+      views: { '.sv': { increment: 1 } }
+    })
   })
 }
