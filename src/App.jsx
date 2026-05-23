@@ -6,15 +6,13 @@ import Nav from './layout/Nav'
 import IndexPage from './page/IndexPage'
 import JobPage from './page/JobPage'
 import DocumentationPage from './page/DocumentationPage'
-import QuestionConPage from './page/QuestionConPage'
+import QuestionDetailsPage from './page/QuestionDetailsPage'
 import AuthenticationPage from './page/AuthenticationPage'
 import Snackbar from './UI/Snackbar/Snackbar'
 
 function App () {
   const { pathname } = useLocation()
-  const isLogin = useSelector((state) => {
-    return state.auth.isLogin
-  })
+  const isLogin = useSelector((state) => state.auth.isLogin)
   return (
     <Fragment>
       {pathname !== '/authentication' && <Nav />}
@@ -26,7 +24,7 @@ function App () {
           <Route path="documentation" element={<DocumentationPage />} />
           <Route
             path="/question/question-details/:questionId"
-            element={<QuestionConPage />}
+            element={<QuestionDetailsPage />}
           />
           {!isLogin && (
             <Route path="/authentication" element={<AuthenticationPage />} />

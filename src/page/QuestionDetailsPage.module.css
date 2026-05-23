@@ -1,3 +1,19 @@
+.goBackBtn{
+  font-size: 13px;
+  margin-bottom: 5px;
+  display: flex;
+}
+.goBackBtn>div{
+  color: var(--base-200);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+  margin-bottom: 5px;
+}
 .questionDataCard{
   background-color: white;
   margin-bottom: 24px;
@@ -34,3 +50,4 @@
   border-radius: 100px;
   padding: 2px 8px;
 }
+
