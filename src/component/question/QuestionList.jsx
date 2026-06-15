@@ -13,7 +13,7 @@ function QuestionList (props) {
   const { questionList, isLoading } = props
   const navigate = useNavigate()
   const addViewCountHandler = async (questionId) => {
-    navigate(`question-details/${questionId}`)
+    navigate(`/question/question-details/${questionId}`)
     await addViewCount(questionId)
   }
 

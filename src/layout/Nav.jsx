@@ -12,11 +12,11 @@ const Nav = () => {
   const { isLogin, displayName } = loginData
   const [menuList] = useState([
     {
-      label: 'Questions',
-      path: '/question'
+      label: 'Question',
+      path: '/'
     },
     {
-      label: 'Jobs',
+      label: 'Job',
       path: '/job'
     },
     {
@@ -24,6 +24,7 @@ const Nav = () => {
       path: '/documentation'
     }
   ])
+  const menuListPath = menuList.map((item) => item.path)
   const { pathname } = useLocation()
   const dispatch = useDispatch()
   const logoutHandler = () => {
@@ -55,11 +56,11 @@ const Nav = () => {
       </div>
         <div className={classes.navFunctionalBar}>
         <div className={classes.menuList}>
-          {menuList.map((menuItem) => (
+          {menuListPath.includes(pathname) && menuList.map((menuItem) => (
             <NavLink
               key={menuItem.label}
               to={menuItem.path}
-              className={`${pathname.includes(menuItem.path) ? classes.active : ''} ${classes.menuListItem}`}
+              className={`${pathname === menuItem.path ? classes.active : ''} ${classes.menuListItem}`}
             >
               {menuItem.label}
             </NavLink>

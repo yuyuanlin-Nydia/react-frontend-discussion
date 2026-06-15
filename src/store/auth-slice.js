@@ -22,10 +22,10 @@ const authSlice = createSlice({
       state.displayName = displayName
     },
     logout (state) {
-      return {
-        ...state,
-        ...initialAuthState
-      }
+      state.isLogin = false
+      state.idToken = null
+      state.email = null
+      state.displayName = null
     }
   }
 })

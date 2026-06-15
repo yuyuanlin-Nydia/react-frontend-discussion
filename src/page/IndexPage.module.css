@@ -41,6 +41,7 @@
 .tag:hover {
   box-shadow: none;
   color: var(--base-300);
+  border-radius: 100px;
 }
 .tag.active {
   border-radius: 100px;

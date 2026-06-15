@@ -65,7 +65,6 @@
   position: relative;
   color: var(--base-200);
   cursor: pointer;
-
 }
 .menuListItem.active{
   color: black;

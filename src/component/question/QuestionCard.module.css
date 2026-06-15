@@ -7,6 +7,7 @@
   font-size: 15px;
   border-bottom: 1px solid #dcdcdc;
   gap: 4%;
+  cursor: pointer;
 }
 .discussionContent {
   text-align: left;
