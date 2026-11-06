@@ -5,11 +5,13 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { authAction } from '../store/auth-slice'
 import Button from '../UI/Button'
-import { mdiEye, mdiEyeOff, mdiAccountKey, mdiEmail, mdiCheckCircle, mdiAlert, mdiAlertCircle } from '@mdi/js'
+import { mdiEye, mdiEyeOff, mdiAccountKey, mdiEmail, mdiCheckCircle, mdiAlertCircle } from '@mdi/js'
 import Input from '../UI/Input/Input'
 import Snackbar from '../UI/Snackbar/Snackbar'
 import logo from '../../assets/images/logo/logoHorizontalLong.png'
 import { snackbarActions } from '../store/snackbar-slice'
+
+const FIREBASE_API_KEY = import.meta.env.VITE_FIREBASE_API_KEY
 
 const Authentication = () => {
   const navigate = useNavigate()
@@ -48,7 +50,7 @@ const Authentication = () => {
   }
 
   const loginHandler = async () => {
-    const url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCYMgs7g9s73a3DTLuMFDhs2q1y3Mk85kg'
+    const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${FIREBASE_API_KEY}`
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -81,7 +83,7 @@ const Authentication = () => {
   }
 
   const registerHandler = async () => {
-    const url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCYMgs7g9s73a3DTLuMFDhs2q1y3Mk85kg'
+    const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${FIREBASE_API_KEY}`
     try {
       const response = await fetch(url, {
         method: 'POST',
