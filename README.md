@@ -1,72 +1,30 @@
-UI source(redesign stackOverflow): https://dribbble.com/shots/2876030-Stackoverflow-redesign/attachments/593826?mode=media
+# frontend-discussion
 
-# Getting Started with Create React App
+前端問答討論網站（Stack Overflow 改版設計）。
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+UI 參考：https://dribbble.com/shots/2876030-Stackoverflow-redesign/attachments/593826?mode=media
 
-## Available Scripts
+## 技術
 
-In the project directory, you can run:
+- React 18、Redux Toolkit、React Router v6
+- Vite
+- Firebase Realtime Database（REST API）、Firebase Auth（REST API）
 
-### `npm start`
+## 環境設定
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+複製 `.env.example` 為 `.env`，並填入 Firebase 設定：
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+VITE_FIREBASE_DOMAIN='https://<your-project>-default-rtdb.firebaseio.com'
+VITE_FIREBASE_API_KEY='<your-firebase-web-api-key>'
+```
 
-### `npm test`
+## 指令
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| 指令 | 說明 |
+| --- | --- |
+| `npm install` | 安裝套件 |
+| `npm run dev`（或 `npm start`） | 啟動開發伺服器：http://localhost:3000 |
+| `npm run build` | 建置正式版本至 `dist/` |
+| `npm run preview` | 本機預覽建置結果 |
+| `npm run lint` | 執行 ESLint 並自動修正 |
