@@ -12,11 +12,12 @@ export const addQuestionApi = async (questionData) =>
     body: JSON.stringify(questionData)
   })
 
-export const updateQuestionAnswerCountApi = async (questionID) => {
+// delta 為正數時增加、負數時減少回答數量
+export const updateQuestionAnswerCountApi = async (questionID, delta = 1) => {
   return await request(`/questions/${questionID}.json`, {
     method: 'PATCH',
     body: JSON.stringify({
-      answers: { '.sv': { increment: 1 } }
+      answers: { '.sv': { increment: delta } }
     })
   })
 }

@@ -9,6 +9,12 @@
   gap: 4%;
   cursor: pointer;
 }
+.singleDiscussion:hover {
+  background-color: rgb(244, 244, 244);
+  .questionTitle {
+     color: var(--accent-secondary-100);
+  }
+}
 .discussionContent {
   text-align: left;
   display: flex;

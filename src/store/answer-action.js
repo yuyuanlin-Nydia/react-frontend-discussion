@@ -1,5 +1,6 @@
 import { answerAction } from './answer-slice'
-import { fetchAnswersApi, addAnswerApi } from '../api/answer'
+import { fetchAnswersApi, addAnswerApi, editAnswerApi, deleteAnswerApi } from '../api/answer'
+import { addAnswerCount } from './question-action'
 
 export const fetchAnswerData = (paramsQuestionId) => {
   return async (dispatch) => {
@@ -23,4 +24,18 @@ export const fetchAnswerData = (paramsQuestionId) => {
 }
 export async function addAnswer (anserData, questionID) {
   await addAnswerApi(anserData, questionID)
+}
+
+export async function editAnswer (questionId, answerId, answer) {
+  await editAnswerApi({
+    questionId,
+    answerId,
+    updatedAnswerData: { answer, updateTime: new Date() }
+  })
+}
+
+// 刪除回答並同步將問題的回答數量 -1
+export async function deleteAnswer (questionId, answerId) {
+  await deleteAnswerApi(questionId, answerId)
+  await addAnswerCount(questionId, -1)
 }

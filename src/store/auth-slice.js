@@ -5,7 +5,7 @@ const storedUserInfo = JSON.parse(localStorage.getItem('userInfo') || '{}')
 
 const initialAuthState = {
   isLogin: !!storedToken,
-  userAccount: storedUserInfo.userAccount || null,
+  email: storedUserInfo.email || null,
   idToken: storedToken || null,
   displayName: storedUserInfo.displayName || null
 }

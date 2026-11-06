@@ -1,23 +1,60 @@
-.answerCard{
+.answerCard {
   padding: 1% 0;
   border-bottom: 1px solid var(--base-100);
 }
 
-.answerCard p{
+.answerCard p {
   font-size: 1rem;
   color: var(--base-300)
 }
-.answerInfo{
+.answerInfo {
   display: flex;
   gap: 8px;
   margin: 5px 0;
+  font-size: 0.8rem;
 }
-.answerAuthor, .answerDate{
+.answerAuthor, .answerDate, .answerAction {
   color:var(--base-200);
   display: flex;
   font-size: 0.8rem;
   align-items: center;
 }
-.dataBox>span{
-    font-size: 1rem;
+.answerAction .textBtn {
+  cursor: pointer;
+  padding: 1px 4px; 
+  font-size: .9rem;
+}
+.answerAction .textBtn:hover, .confirmEditBtn:hover, .cancelEditBtn:hover {
+  background-color: rgb(236, 234, 234);
+  border-radius: 4px;
+}
+.editInputContainer {
+  font-size: .9rem;
+  margin: 1em 0 0;
+}
+.editInput {
+  display: block;
+  width: 100%;
+  min-height: 4em;
+  box-sizing: border-box;
+  font: inherit;
+  resize: vertical;
+}
+.disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+.confirmEditBtn, .cancelEditBtn {
+  cursor: pointer;
+  padding: 1px 4px; 
+  font-size: .9rem;
+  display: inline-block;
+  margin: 2px 0;
+}
+.confirmEditBtn {
+  color: var(--accent-secondary);
+  margin-right: 8px;
+}
+.cancelEditBtn {
+  color: var(--base-200);
 }

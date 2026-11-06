@@ -53,10 +53,10 @@ export const addViewCount = async (questionId) => {
   }
 }
 
-// 更新問題的回答數量
-export const addAnswerCount = async (questionID) => {
+// 更新問題的回答數量（delta 預設 +1，刪除回答時傳入 -1）
+export const addAnswerCount = async (questionID, delta = 1) => {
   try {
-    await updateQuestionAnswerCountApi(questionID)
+    await updateQuestionAnswerCountApi(questionID, delta)
   } catch (error) {
     console.log(error)
   }

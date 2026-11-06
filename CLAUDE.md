@@ -11,7 +11,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run dev`（或 `npm start`）：啟動 Vite 開發伺服器，port 3000
 - `npm run build` / `npm run preview`
 - `npm run lint`：ESLint（`standard` + `plugin:react/recommended`，設定於 `.eslintrc.js`）。此指令帶有 `--fix`，會直接修改檔案。
-- `npm test` 會執行 `vitest`，但目前尚未安裝 vitest，也沒有任何測試檔。撰寫測試前需先將 `vitest` 加入 devDependencies。執行單一測試檔：`npx vitest run path/to/file.test.jsx`。
+- `npm test`：以 watch 模式執行 Vitest（jsdom 環境，設定在 `vite.config.js` 的 `test`，setup 檔為 `src/setupTests.js`）。
+  - 單次執行全部：`npx vitest run`
+  - 單一測試檔：`npx vitest run src/component/answer/AnswerCard.test.jsx`
+  - 單一測試案例：`npx vitest run -t "測試名稱"`
+
+## 測試慣例
+
+- 測試檔與被測檔案放在同一目錄，命名為 `*.test.js(x)`，測試名稱使用中文。
+- 需要 Redux 與路由參數的元件使用 `src/test/renderWithStore.jsx`，可傳入 `auth` 狀態與 `questionId`。
+- 不呼叫真實 Firebase：元件測試以 `vi.mock` mock `store/*-action`，action／API 測試以 `vi.stubGlobal('fetch', ...)` mock fetch。
 
 程式碼風格遵循 ESLint `standard`：不加分號、使用單引號、函式名稱與括號間留空格（`function App () {}`）。
 
@@ -31,7 +40,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `src/api/client.jsx` 的 `request(path, { params, ...fetchOptions })` 會將路徑接在 `BASE_URL` 之後。**`params` 中的字串值會自動加上雙引號**，因為 Firebase REST 查詢參數（如 `orderBy="time"`）規定要有引號。請直接傳入原始值，不要自行加引號。
 - Firebase 回傳的集合格式為 `{ pushKey: {...} }` 物件。action thunk 會先轉成 `{ id: pushKey, ...data }` 陣列，再 dispatch 進 slice。
 - 資料庫結構：`/questions/{questionId}` 與 `/answers/{questionId}/{answerId}`。回答以問題 id 為鍵另存一層，而不是存放在問題物件內。
-- 瀏覽次數與回答數量透過 PATCH 搭配 Firebase 伺服器端遞增（`{ '.sv': { increment: 1 } }`）更新，參見 `src/api/question.jsx`。
+- 瀏覽次數與回答數量透過 PATCH 搭配 Firebase 伺服器端遞增（`{ '.sv': { increment: n } }`）更新，參見 `src/api/question.jsx`。新增回答時 +1，刪除時 -1。
+- 回答的建立時間欄位是 `time`（`fetchAnswerData` 以 `orderBy: 'time'` 排序），編輯後另存 `updateTime`。更新既有資料一律用 PATCH，不要用 PUT，否則會覆蓋掉 `time`、`email` 等欄位。
+- 判斷回答是否為本人所寫：優先比對 `email`，舊資料沒有 `email` 時才比對作者名稱（見 `AnswerCard.jsx`）。
 
 **Redux store**（`src/store/index.js`）：slice 有 `questions`、`answers`、`auth`、`snackbar`。每個 slice 匯出 `xxxAction`／`xxxActions` 與 reducer。非同步邏輯放在對應的 `*-action.js`（thunk 或一般 async 函式），不要寫在 slice 內。`redux-persist` 雖列為相依套件，但目前並未使用。
 
