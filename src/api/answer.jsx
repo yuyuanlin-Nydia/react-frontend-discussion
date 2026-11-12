@@ -18,3 +18,21 @@ export const deleteAnswerApi = async (questionId, answerId) =>
   await request(`/answers/${questionId}/${answerId}.json`, {
     method: 'DELETE'
   })
+
+// 留言串中的回覆存放於 /answers/{questionId}/{answerId}/replies/{replyId}
+export const addReplyApi = async (replyData, questionId, answerId) =>
+  await request(`/answers/${questionId}/${answerId}/replies.json`, {
+    method: 'POST',
+    body: JSON.stringify(replyData)
+  })
+
+export const editReplyApi = async ({ questionId, answerId, replyId, updatedReplyData }) =>
+  await request(`/answers/${questionId}/${answerId}/replies/${replyId}.json`, {
+    method: 'PATCH',
+    body: JSON.stringify(updatedReplyData)
+  })
+
+export const deleteReplyApi = async (questionId, answerId, replyId) =>
+  await request(`/answers/${questionId}/${answerId}/replies/${replyId}.json`, {
+    method: 'DELETE'
+  })

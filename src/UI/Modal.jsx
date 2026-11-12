@@ -4,14 +4,16 @@ import classes from './Modal.module.css'
 import PropTypes from 'prop-types'
 
 Modal.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  className: PropTypes.string
 }
 
 function Modal (props) {
+  const modalClass = props.className ? `${classes.modal} ${props.className}` : classes.modal
   return (
     <Fragment>
       {ReactDOM.createPortal(
-        <div className={classes.modal}>{props.children}</div>,
+        <div className={modalClass}>{props.children}</div>,
         document.getElementById('modal-root')
       )}
     </Fragment>

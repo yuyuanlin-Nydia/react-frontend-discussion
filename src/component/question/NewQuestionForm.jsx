@@ -5,6 +5,8 @@ import classes from './NewQuestionForm.module.css'
 import Modal from '../../UI/Modal'
 import Button from '../../UI/Button'
 import PropTypes from 'prop-types'
+import { snackbarActions } from '../../store/snackbar-slice'
+import { getErrorMessage } from '../../lib/errorMessage'
 
 NewQuestionForm.propTypes = {
   onClickModal: PropTypes.func
@@ -14,7 +16,7 @@ function NewQuestionForm (props) {
   const titleRef = useRef(null)
   const descriptionRef = useRef(null)
   const dispatch = useDispatch()
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault()
     const data = {
       title: titleRef.current.value,
@@ -24,9 +26,17 @@ function NewQuestionForm (props) {
       views: 0,
       time: new Date()
     }
-    addQuestion(data)
-    props.onClickModal()
-    dispatch(fetchQuestions())
+    try {
+      await addQuestion(data)
+      props.onClickModal()
+      dispatch(snackbarActions.showSnackbar({ message: '已成功發問!' }))
+      dispatch(fetchQuestions())
+    } catch (error) {
+      dispatch(snackbarActions.showSnackbar({
+        message: getErrorMessage(error, '發問失敗，請稍後再試'),
+        bgColor: 'var(--error)'
+      }))
+    }
   }
   return (
     <Modal>

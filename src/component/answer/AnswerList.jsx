@@ -1,10 +1,10 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import classes from './AnswerList.module.css'
 import { useParams } from 'react-router-dom'
 import AnswerCard from './AnswerCard'
 import Button from '../../UI/Button'
 import { addAnswer } from '../../store/answer-action'
-import { addAnswerCount } from '../../store/question-action'
+import { getErrorMessage } from '../../lib/errorMessage'
 import { useSelector, useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import { snackbarActions } from '../../store/snackbar-slice'
@@ -20,31 +20,41 @@ function AnswerList ({ answerData, onSubmitSuccess, isAnswerLoading }) {
   const [reply, setReply] = useState('')
   const { displayName, email, isLogin } = useSelector((state) => state.auth)
   const paramsQuestionId = useParams().questionId
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const submitReplyHandler = async () => {
+    const trimmed = reply.trim()
+    if (!trimmed || isSubmitting) return
     const data = {
       email,
       author: displayName,
-      answer: reply,
+      answer: trimmed,
       time: new Date()
     }
-    await Promise.all([addAnswer(data, paramsQuestionId), addAnswerCount(paramsQuestionId)])
-    dispatch(snackbarActions.showSnackbar({
-      message: '已成功新增回覆!'
-    }))
-    setReply('')
-    onSubmitSuccess()
+    setIsSubmitting(true)
+    try {
+      await addAnswer(data, paramsQuestionId)
+      dispatch(snackbarActions.showSnackbar({ message: '已成功新增回覆!' }))
+      setReply('')
+      onSubmitSuccess()
+    } catch (error) {
+      if (error?.code === 'ANSWER_COUNT_SYNC') {
+        // 回覆已送出，只是回答數量沒更新成功
+        dispatch(snackbarActions.showSnackbar({ message: '回覆已送出，但回答數量更新失敗', bgColor: 'var(--warning)' }))
+        setReply('')
+        onSubmitSuccess()
+      } else {
+        dispatch(snackbarActions.showSnackbar({
+          message: getErrorMessage(error, '回覆失敗，請稍後再試'),
+          bgColor: 'var(--error)'
+        }))
+      }
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
-  const replyRef = useRef(null)
-  // 點擊回答的「回覆」：在輸入框前加上 @作者 並聚焦
-  const replyToHandler = (author) => {
-    const mention = `@${author} `
-    setReply((prev) => (prev.startsWith(mention) ? prev : mention + prev))
-    replyRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    replyRef.current?.focus()
-  }
-
-  const btnClass = reply ? `${classes.submitBtn}` : `${classes.submitBtn} ${classes.disabled}`
+  const canSubmit = !!reply.trim() && !isSubmitting
+  const btnClass = canSubmit ? `${classes.submitBtn}` : `${classes.submitBtn} ${classes.disabled}`
   if (isAnswerLoading) {
     return <div className={classes.answerConContainer}>載入中...</div>
   }
@@ -56,14 +66,13 @@ function AnswerList ({ answerData, onSubmitSuccess, isAnswerLoading }) {
           answerData={answer}
           key={answer.id}
           onChange={onSubmitSuccess}
-          onReply={replyToHandler}
         />
       ))}
       { isLogin && <div className={classes.replySection}>
         <h6 className={classes.replyTitle}>Your Reply</h6>
-        <textarea ref={replyRef} aria-label="Your Reply" value={reply} onChange={(e) => setReply(e.target.value)} />
+        <textarea aria-label="Your Reply" value={reply} onChange={(e) => setReply(e.target.value)} />
         <Button
-          disabled={!reply}
+          disabled={!canSubmit}
           classBtn={btnClass}
           clickEvent={submitReplyHandler}
         >

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { authAction } from '../store/auth-slice'
 import React, { useState } from 'react'
 import { snackbarActions } from '../store/snackbar-slice'
+import { clearSession } from '../lib/authStorage'
 import logoHorizontal from '../../assets/images/logo/logoHorizontal.png'
 
 const Nav = () => {
@@ -28,8 +29,7 @@ const Nav = () => {
   const { pathname } = useLocation()
   const dispatch = useDispatch()
   const logoutHandler = () => {
-    localStorage.removeItem('idToken')
-    localStorage.removeItem('userInfo')
+    clearSession()
     dispatch(authAction.logout())
     dispatch(snackbarActions.showSnackbar({
       message: '您已成功登出！'

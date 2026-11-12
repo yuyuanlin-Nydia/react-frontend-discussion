@@ -58,3 +58,23 @@
 .cancelEditBtn {
   color: var(--base-200);
 }
+/* 留言串：回答底下的回覆 */
+.thread {
+  margin: 4px 0 8px 24px;
+  padding-left: 12px;
+  border-left: 2px solid var(--base-100);
+}
+.replyCard {
+  padding: 6px 0;
+}
+.replyCard + .replyCard {
+  border-top: 1px dashed var(--base-100);
+}
+.replyCard p {
+  font-size: .9rem;
+  color: var(--base-300);
+  margin: 0;
+}
+.replyCard .answerInfo {
+  margin: 2px 0;
+}

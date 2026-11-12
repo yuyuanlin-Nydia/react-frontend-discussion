@@ -10,6 +10,7 @@ import Input from '../UI/Input/Input'
 import Snackbar from '../UI/Snackbar/Snackbar'
 import logo from '../../assets/images/logo/logoHorizontalLong.png'
 import { snackbarActions } from '../store/snackbar-slice'
+import { saveSession } from '../lib/authStorage'
 
 const FIREBASE_API_KEY = import.meta.env.VITE_FIREBASE_API_KEY
 
@@ -70,12 +71,7 @@ const Authentication = () => {
         isLogin: true,
         loginData: data
       }))
-      const { idToken, email: dataEmail, displayName } = data
-      localStorage.setItem('idToken', idToken)
-      localStorage.setItem('userInfo', JSON.stringify({
-        email: dataEmail,
-        displayName
-      }))
+      saveSession(data)
       navigate('/', { replace: true })
     } catch (e) {
       console.error(e.message)

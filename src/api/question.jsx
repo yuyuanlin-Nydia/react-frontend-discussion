@@ -24,6 +24,7 @@ export const updateQuestionAnswerCountApi = async (questionID, delta = 1) => {
 export const updateQuestionViewCountApi = async (questionID) => {
   return await request(`/questions/${questionID}.json`, {
     method: 'PATCH',
+    auth: false, // 未登入的訪客也會累計瀏覽次數
     body: JSON.stringify({
       // .sv 代表 Server Value（伺服器變數），這行指令會讓 Firebase 伺服器在後端自動 +1
       views: { '.sv': { increment: 1 } }

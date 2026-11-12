@@ -3,7 +3,6 @@ import {
   fetchQuestionsApi,
   fetchSingleQuestionApi,
   addQuestionApi,
-  updateQuestionAnswerCountApi,
   updateQuestionViewCountApi
 } from '../api/question'
 
@@ -41,22 +40,12 @@ export const fetchSingleQuestion = (questionId) => {
 }
 export async function addQuestion (questionData) {
   await addQuestionApi(questionData)
-  alert('已成功發問!')
 }
 
 // 更新問題的瀏覽次數
 export const addViewCount = async (questionId) => {
   try {
     await updateQuestionViewCountApi(questionId)
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-// 更新問題的回答數量（delta 預設 +1，刪除回答時傳入 -1）
-export const addAnswerCount = async (questionID, delta = 1) => {
-  try {
-    await updateQuestionAnswerCountApi(questionID, delta)
   } catch (error) {
     console.log(error)
   }

@@ -1,0 +1,40 @@
+{
+  "rules": {
+    "questions": {
+      ".read": true,
+      "$questionId": {
+        ".write": "auth != null && !data.exists()",
+        "views": {
+          ".write": true,
+          ".validate": "newData.isNumber() && newData.val() >= 0"
+        },
+        "answers": {
+          ".write": "auth != null",
+          ".validate": "newData.isNumber() && newData.val() >= 0"
+        }
+      }
+    },
+    "answers": {
+      ".read": true,
+      "$questionId": {
+        ".indexOn": ["time"],
+        "$answerId": {
+          ".write": "auth != null && (data.exists() ? (data.child('email').exists() ? data.child('email').val() === auth.token.email : (data.child('author').exists() && auth.token.name != null && data.child('author').val() === auth.token.name)) : newData.child('email').val() === auth.token.email)",
+          ".validate": "!newData.exists() || newData.hasChild('answer')",
+          "answer": {
+            ".validate": "newData.isString() && newData.val().length > 0"
+          },
+          "replies": {
+            "$replyId": {
+              ".write": "auth != null && (data.exists() ? data.child('email').val() === auth.token.email : newData.child('email').val() === auth.token.email)",
+              ".validate": "!newData.exists() || (newData.hasChildren(['answer', 'email']) && newData.parent().parent().hasChild('answer'))",
+              "answer": {
+                ".validate": "newData.isString() && newData.val().length > 0"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
